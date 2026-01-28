@@ -87,10 +87,10 @@ class AREngine {
             uiController.showLoadingModal('Загрузка ML модели...');
 
             // Инициализация ML детектора (с обработкой ошибок)
-            try {
-                await mlDetector.init();
+            const mlInitResult = await mlDetector.init();
+            if (mlInitResult) {
                 CONFIG.log('ML детектор инициализирован');
-            } catch (mlError) {
+            } else {
                 CONFIG.warn('ML модель не загружена, используется режим без детекции');
                 uiController.showHint('⚠️ Режим без автоматической детекции дверей');
             }

@@ -18,25 +18,57 @@ class MLDetector {
         try {
             CONFIG.log('Инициализация ML детектора');
 
+            // Проверка доступности COCO-SSD
+            if (typeof cocoSsd === 'undefined') {
+                CONFIG.warn('COCO-SSD не загружена, используется режим без ML');
+                this.isLoaded = false;
+                this.model = null;
+                return false;
+            }
+
             // Загрузка COCO-SSD модели с таймаутом
-            const loadPromise = cocoSsd.load();
-            const timeoutPromise = new Promise((_, reject) =>
-                setTimeout(() => reject(new Error('Таймаут загрузки ML модели (30 сек)')), 30000)
-            );
+            let modelLoaded = false;
+            let timeoutOccurred = false;
+            
+            const timeoutPromise = new Promise((resolve) => {
+                setTimeout(() => {
+                    timeoutOccurred = true;
+                    CONFIG.warn('Таймаут загрузки ML модели (10 сек)');
+                    resolve(null);
+                }, 10000);
+            });
 
+            const loadPromise = (async () => {
+                try {
+                    const model = await cocoSsd.load();
+                    modelLoaded = true;
+                    return model;
+                } catch (err) {
+                    CONFIG.error('Ошибка загрузки COCO-SSD:', err);
+                    return null;
+                }
+            })();
+
+            // Гонка между загрузкой и таймаутом
             this.model = await Promise.race([loadPromise, timeoutPromise]);
-            this.isLoaded = true;
 
-            CONFIG.log('ML модель успешно загружена');
-            return true;
+            if (this.model && modelLoaded && !timeoutOccurred) {
+                this.isLoaded = true;
+                CONFIG.log('ML модель успешно загружена');
+                return true;
+            } else {
+                CONFIG.warn('ML модель не загружена, используется режим без детекции');
+                this.isLoaded = false;
+                this.model = null;
+                return false;
+            }
 
         } catch (error) {
-            CONFIG.error('Ошибка загрузки ML модели:', error);
-            // Используем упрощенный режим без ML детекции
+            CONFIG.error('Ошибка инициализации ML детектора:', error);
             CONFIG.warn('Переход в режим без ML детекции');
             this.isLoaded = false;
             this.model = null;
-            throw new Error(CONFIG.ERRORS.ML_INIT_FAILED);
+            return false;
         }
     }
 
