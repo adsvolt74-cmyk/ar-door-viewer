@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Автоматизация Продаж за 45 Дней</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #ffffff;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            color: #FFD700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #FFD700;
+            color: #000000;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: 2px solid #FFD700;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #FFC700;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button-secondary {
+            background-color: transparent;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            margin-left: 15px;
+        }
+
+        .cta-button-secondary:hover {
+            background-color: #FFD700;
+            color: #000000;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #000000;
+        }
+
+        .section-title .highlight {
+            color: #FFD700;
+        }
+
+        /* Problem Section - НОВАЯ СТРУКТУРА */
+        .problems {
+            background-color: #ffffff;
+            padding: 80px 20px;
+        }
+
+        .problems-intro {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .problems-intro p {
+            font-size: 18px;
+            color: #666666;
+            line-height: 1.8;
+        }
+
+        .problem-block {
+            background-color: #f9f9f9;
+            border: 3px solid #FFD700;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .problem-block:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .problem-block:nth-child(even) .problem-text {
+            order: 2;
+        }
+
+        .problem-block:nth-child(even) .problem-image {
+            order: 1;
+        }
+
+        .problem-text h3 {
+            font-size: 28px;
+            color: #000000;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .problem-text p {
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .problem-text ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .problem-text li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #666666;
+            font-size: 15px;
+        }
+
+        .problem-text li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #FF6B6B;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .problem-image {
+            background-color: #ffffff;
+            border: 2px dashed #FFD700;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .problem-image-placeholder {
+            font-size: 80px;
+            margin-bottom: 15px;
+        }
+
+        .problem-image-text {
+            font-size: 14px;
+            color: #999999;
+            font-style: italic;
+        }
+
+        /* Solution Section */
+        .solution {
+            background-color: #FFD700;
+            padding: 80px 20px;
+            color: #000000;
+        }
+
+        .solution .section-title {
+            color: #000000;
+        }
+
+        .solution .section-title .highlight {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .solution-intro {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .solution-item {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #000000;
+        }
+
+        .solution-item h4 {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .solution-item p {
+            color: #666666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background-color: #ffffff;
+            padding: 80px 20px;
+        }
+
+        .timeline-intro {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 16px;
+            color: #666666;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background-color: #f9f9f9;
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 200px 1fr 300px;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .timeline-period {
+            background-color: #FFD700;
+            color: #000000;
+            padding: 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .timeline-description h4 {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .timeline-description p {
+            color: #666666;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .timeline-image {
+            background-color: #ffffff;
+            border: 2px dashed #FFD700;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .timeline-image-placeholder {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-image-text {
+            font-size: 12px;
+            color: #999999;
+            font-style: italic;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: #f0f0f0;
+            padding: 80px 20px;
+        }
+
+        .pricing-intro {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 16px;
+            color: #666666;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background-color: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: #FFD700;
+            border-width: 3px;
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .pricing-card.featured::before {
+            content: 'РЕКОМЕНДУЕМЫЙ';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #FFD700;
+            color: #000000;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        .pricing-card .price {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FFD700;
+            margin: 20px 0;
+        }
+
+        .pricing-card .price-desc {
+            color: #666666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 10px 0;
+            color: #666666;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .pricing-card li::before {
+            content: '✓ ';
+            color: #FFD700;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .pricing-card .cta-button {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .guarantee .section-title {
+            color: #ffffff;
+        }
+
+        .guarantee .section-title .highlight {
+            color: #FFD700;
+        }
+
+        .guarantee-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .guarantee-item {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 12px;
+            border: 2px solid #FFD700;
+        }
+
+        .guarantee-item h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+
+        .guarantee-item p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #ffffff;
+        }
+
+        /* Cases Section */
+        .cases {
+            background-color: #ffffff;
+            padding: 80px 20px;
+        }
+
+        .cases-intro {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 16px;
+            color: #666666;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .case-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+            border: 2px solid #FFD700;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .case-card:hover {
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .case-card h4 {
+            color: #000000;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .case-card .metric {
+            background-color: #FFD700;
+            color: #000000;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .case-card p {
+            color: #666666;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+            color: #000000;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .final-cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button-dark {
+            background-color: #000000;
+            color: #FFD700;
+            border: 2px solid #000000;
+        }
+
+        .cta-button-dark:hover {
+            background-color: #1a1a1a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 3px solid #FFD700;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .problem-block {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+
+            .guarantee-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-button-secondary {
+                display: block;
+                margin-left: 0;
+                margin-top: 15px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .final-cta h2 {
+                font-size: 28px;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">CRM Автоматизация</div>
+            <nav>
+                <a href="#problems">Проблемы</a>
+                <a href="#solution">Решение</a>
+                <a href="#pricing">Цены</a>
+                <a href="#cases">Кейсы</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Управляемые продажи <span class="highlight">за 45 дней</span></h1>
+            <p>Внедрим систему, которая будет отслеживать всех клиентов, напоминать о них и помогать продавать больше — без лишних бумаг и суеты</p>
+            <div>
+                <button class="cta-button">Бесплатная консультация</button>
+                <button class="cta-button cta-button-secondary">Узнать подробнее</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <h2 class="section-title">Какие <span class="highlight">проблемы</span> мы решаем</h2>
+            
+            <div class="problems-intro">
+                <p>Если вы узнаёте себя в этих ситуациях — мы можем помочь. Каждая проблема решается за 45 дней.</p>
+            </div>
+
+            <!-- Problem 1 -->
+            <div class="problem-block">
+                <div class="problem-text">
+                    <h3>Клиенты теряются в разных местах</h3>
+                    <p>Звонки в одном месте, письма в другом, сообщения в третьем. Никто не знает, кто звонил, что обещали, когда перезвонить.</p>
+                    <ul>
+                        <li>Менеджеры забывают про клиентов</li>
+                        <li>Теряются важные обращения</li>
+                        <li>Нет истории общения с клиентом</li>
+                        <li>Конверсия падает на 20-30%</li>
+                    </ul>
+                </div>
+                <div class="problem-image">
+                    <div class="problem-image-placeholder">📞📧💬</div>
+                    <div class="problem-image-text">Изображение: Хаос из разных каналов связи (телефон, почта, мессенджеры)</div>
+                </div>
+            </div>
+
+            <!-- Problem 2 -->
+            <div class="problem-block">
+                <div class="problem-image">
+                    <div class="problem-image-placeholder">⏰❌</div>
+                    <div class="problem-image-text">Изображение: Менеджер забыл про клиента, сделка потеряна</div>
+                </div>
+                <div class="problem-text">
+                    <h3>Менеджеры забывают про клиентов</h3>
+                    <p>Нет системы напоминаний. Менеджер обещал перезвонить, но забыл. Клиент ушёл к конкуренту.</p>
+                    <ul>
+                        <li>Нет автоматических напоминаний</li>
+                        <li>Сделки зависают на месяцы</li>
+                        <li>Потеря денег из-за забывчивости</li>
+                        <li>Клиенты недовольны</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Problem 3 -->
+            <div class="problem-block">
+                <div class="problem-text">
+                    <h3>Руководитель не видит, что происходит</h3>
+                    <p>Вы не знаете, сколько лидов в работе, на каком этапе они находятся, почему сделки не закрываются.</p>
+                    <ul>
+                        <li>Нет прозрачности по сделкам</li>
+                        <li>Невозможно спланировать доход</li>
+                        <li>Не видно, кто работает, а кто нет</li>
+                        <li>Нельзя принять правильное решение</li>
+                    </ul>
+                </div>
+                <div class="problem-image">
+                    <div class="problem-image-placeholder">🤷‍♂️❓</div>
+                    <div class="problem-image-text">Изображение: Руководитель в замешательстве, не видит данные</div>
+                </div>
+            </div>
+
+            <!-- Problem 4 -->
+            <div class="problem-block">
+                <div class="problem-image">
+                    <div class="problem-image-placeholder">⚙️🔧</div>
+                    <div class="problem-image-text">Изображение: Ручная работа, много бумаг и операций</div>
+                </div>
+                <div class="problem-text">
+                    <h3>Менеджеры тратят время на рутину</h3>
+                    <p>Вместо продаж менеджеры пишут отчёты, ищут информацию, вводят данные вручную.</p>
+                    <ul>
+                        <li>50% времени на ввод данных</li>
+                        <li>Ошибки в информации</li>
+                        <li>Менеджеры устают от рутины</li>
+                        <li>Меньше времени на реальные продажи</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Problem 5 -->
+            <div class="problem-block">
+                <div class="problem-text">
+                    <h3>Невозможно нанять нового менеджера</h3>
+                    <p>Нет системы и регламентов. Новый сотрудник не знает, как работать. Нужно месяц на обучение.</p>
+                    <ul>
+                        <li>Нет стандартных процессов</li>
+                        <li>Долгое обучение новичков</li>
+                        <li>Рост упирается в людей</li>
+                        <li>Нельзя масштабировать бизнес</li>
+                    </ul>
+                </div>
+                <div class="problem-image">
+                    <div class="problem-image-placeholder">👤➕❌</div>
+                    <div class="problem-image-text">Изображение: Новый сотрудник не может начать работу</div>
+                </div>
+            </div>
+
+            <!-- Problem 6 -->
+            <div class="problem-block">
+                <div class="problem-image">
+                    <div class="problem-image-placeholder">📊📉</div>
+                    <div class="problem-image-text">Изображение: Падающий график продаж и доходов</div>
+                </div>
+                <div class="problem-text">
+                    <h3>Доход не растёт, хотя работаете больше</h3>
+                    <p>Вы работаете всё больше, но доход не растёт. Потому что теряются клиенты и сделки.</p>
+                    <ul>
+                        <li>Потеря 20-30% потенциального дохода</li>
+                        <li>Работаете в авральном режиме</li>
+                        <li>Нет системы для роста</li>
+                        <li>Конкуренты растут быстрее</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <h2 class="section-title">Как мы <span class="highlight">решаем</span> эти проблемы</h2>
+            
+            <div class="solution-intro">
+                <p>Мы внедряем систему, которая собирает всех клиентов в одном месте, напоминает о них и помогает продавать больше. Просто и понятно.</p>
+            </div>
+
+            <div class="solution-grid">
+                <div class="solution-item">
+                    <h4>📱 Все клиенты в одном месте</h4>
+                    <p>Звонки, письма, сообщения — всё собирается в одной системе. Вы видите полную историю общения с каждым клиентом.</p>
+                </div>
+
+                <div class="solution-item">
+                    <h4>🔔 Автоматические напоминания</h4>
+                    <p>Система сама напоминает менеджеру: "Нужно перезвонить этому клиенту". Никто не забудет.</p>
+                </div>
+
+                <div class="solution-item">
+                    <h4>📊 Видно всё на одном экране</h4>
+                    <p>Руководитель видит: сколько лидов, на каком этапе они, когда закроются. Можно спланировать доход.</p>
+                </div>
+
+                <div class="solution-item">
+                    <h4>⚡ Экономия 15+ часов в неделю</h4>
+                    <p>Система делает рутину автоматически. Менеджеры тратят время только на реальные продажи.</p>
+                </div>
+
+                <div class="solution-item">
+                    <h4>👥 Легко нанять нового менеджера</h4>
+                    <p>Есть система и регламенты. Новичок быстро разбирается и начинает продавать.</p>
+                </div>
+
+                <div class="solution-item">
+                    <h4>💰 Доход растёт на 30-40%</h4>
+                    <p>Меньше теряем клиентов, лучше управляем сделками, выше конверсия. Доход растёт.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <div class="container">
+            <h2 class="section-title">Как мы <span class="highlight">работаем</span> — 45 дней до результата</h2>
+            
+            <div class="timeline-intro">
+                <p>Мы не просто ставим программу и уходим. Мы внедряем систему, обучаем команду и контролируем результат.</p>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Week 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-period">День 1–3</div>
+                    <div class="timeline-description">
+                        <h4>Разбираемся в вашем бизнесе</h4>
+                        <p>Интервью с менеджерами и руководителем. Смотрим, как сейчас работают, где теряются клиенты, какие проблемы.</p>
+                    </div>
+                    <div class="timeline-image">
+                        <div class="timeline-image-placeholder">🔍</div>
+                        <div class="timeline-image-text">Изображение: Аудит процессов, интервью</div>
+                    </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-period">Неделя 1</div>
+                    <div class="timeline-description">
+                        <h4>Проектируем систему</h4>
+                        <p>Рисуем, как будут работать продажи. Какие этапы, какие данные собирать, кто за что отвечает.</p>
+                    </div>
+                    <div class="timeline-image">
+                        <div class="timeline-image-placeholder">📋</div>
+                        <div class="timeline-image-text">Изображение: Схема процесса продаж</div>
+                    </div>
+                </div>
+
+                <!-- Week 3-4 -->
+                <div class="timeline-item">
+                    <div class="timeline-period">Неделя 2–3</div>
+                    <div class="timeline-description">
+                        <h4>Настраиваем систему</h4>
+                        <p>Подключаем телефонию, почту, мессенджеры. Создаём воронку продаж. Настраиваем автоматизации и напоминания.</p>
+                    </div>
+                    <div class="timeline-image">
+                        <div class="timeline-image-placeholder">⚙️</div>
+                        <div class="timeline-image-text">Изображение: Настройка интеграций и воронки</div>
+                    </div>
+                </div>
+
+                <!-- Week 5-6 -->
+                <div class="timeline-item">
+                    <div class="timeline-period">Неделя 4–6</div>
+                    <div class="timeline-description">
+                        <h4>Обучаем команду и запускаем</h4>
+                        <p>Показываем менеджерам, как работать. Запускаем систему. Контролируем, чтобы все правильно заполняли данные.</p>
+                    </div>
+                    <div class="timeline-image">
+                        <div class="timeline-image-placeholder">👨‍🏫</div>
+                        <div class="timeline-image-text">Изображение: Обучение команды</div>
+                    </div>
+                </div>
+
+                <!-- Week 7 -->
+                <div class="timeline-item">
+                    <div class="timeline-period">День 45</div>
+                    <div class="timeline-description">
+                        <h4>Система работает, видны результаты</h4>
+                        <p>Система работает в боевом режиме. Видны первые результаты: меньше потерь, больше контроля, экономия времени.</p>
+                    </div>
+                    <div class="timeline-image">
+                        <div class="timeline-image-placeholder">✅</div>
+                        <div class="timeline-image-text">Изображение: Успешный запуск, результаты</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Выберите <span class="highlight">пакет</span></h2>
+            
+            <div class="pricing-intro">
+                <p>Три варианта в зависимости от размера вашей команды и сложности процессов.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Старт</h3>
+                    <p style="color: #666666; margin-bottom: 10px;">Для малых команд</p>
+                    <div class="price">190 000 ₽</div>
+                    <p class="price-desc">5–15 человек, 1 воронка</p>
+                    <ul>
+                        <li>Базовая настройка системы</li>
+                        <li>1 воронка продаж</li>
+                        <li>Подключение телефонии и почты</li>
+                        <li>Простые отчёты</li>
+                        <li>Обучение команды</li>
+                        <li>30 дней поддержки</li>
+                    </ul>
+                    <button class="cta-button">Выбрать пакет</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Рост</h3>
+                    <p style="color: #666666; margin-bottom: 10px;">Рекомендуемый вариант</p>
+                    <div class="price">350 000 ₽</div>
+                    <p class="price-desc">10–40 человек, 2–3 воронки</p>
+                    <ul>
+                        <li>Полная настройка системы</li>
+                        <li>2–3 воронки (новые, повторные, партнёры)</li>
+                        <li>Все интеграции (телефония, почта, мессенджеры)</li>
+                        <li>Дашборд для руководителя</li>
+                        <li>Автоматизации и напоминания</li>
+                        <li>Обучение + 60 дней поддержки</li>
+                    </ul>
+                    <button class="cta-button">Выбрать пакет</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Система</h3>
+                    <p style="color: #666666; margin-bottom: 10px;">Для сложных процессов</p>
+                    <div class="price">590 000 ₽</div>
+                    <p class="price-desc">30–80 человек, 3+ отдела</p>
+                    <ul>
+                        <li>Полная кастомизация под вас</li>
+                        <li>Сложные интеграции</li>
+                        <li>Расширенная аналитика</li>
+                        <li>Регламенты и контроль качества</li>
+                        <li>Выделенный менеджер проекта</li>
+                        <li>12 месяцев поддержки</li>
+                    </ul>
+                    <button class="cta-button">Выбрать пакет</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee">
+        <div class="container">
+            <h2 class="section-title">Наша <span class="highlight">гарантия</span></h2>
+            
+            <div class="guarantee-content">
+                <div class="guarantee-item">
+                    <h3>Гарантия внедрения</h3>
+                    <p>Если к 45 дню система не запущена и не работает — мы дорабатываем бесплатно, пока не заработает.</p>
+                </div>
+                
+                <div class="guarantee-item">
+                    <h3>Гарантия результата</h3>
+                    <p>Если через 30 дней вы не видите 30% экономию времени — продлеваем поддержку на месяц бесплатно.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="cases" id="cases">
+        <div class="container">
+            <h2 class="section-title">Кейсы <span class="highlight">успеха</span></h2>
+            
+            <div class="cases-intro">
+                <p>Вот что получили наши клиенты после внедрения системы.</p>
+            </div>
+
+            <div class="cases-grid">
+                <div class="case-card">
+                    <h4>B2B SaaS компания</h4>
+                    <p>25 человек, теряли 30% клиентов</p>
+                    <div style="margin-top: 15px;">
+                        <div class="metric">+35% конверсия</div>
+                        <div class="metric">-40% цикл продаж</div>
+                        <div class="metric">+60% доход</div>
+                        <div class="metric">-18 часов/неделю</div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <h4>Консалтинговая фирма</h4>
+                    <p>40 человек, хаос в управлении</p>
+                    <div style="margin-top: 15px;">
+                        <div class="metric">+45% производительность</div>
+                        <div class="metric">+50% клиентская база</div>
+                        <div class="metric">-20 часов/неделю</div>
+                        <div class="metric">Масштабирование</div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <h4>Агентство маркетинга</h4>
+                    <p>15 человек, дублирование работы</p>
+                    <div style="margin-top: 15px;">
+                        <div class="metric">+42% производительность</div>
+                        <div class="metric">-80% ошибки</div>
+                        <div class="metric">-15 часов/неделю</div>
+                        <div class="metric">+30% удовлетворение</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Готовы к управляемым продажам?</h2>
+            <p>Начните с бесплатной консультации. Разберём вашу ситуацию, покажем, как мы можем помочь, и ответим на все вопросы.</p>
+            <div class="cta-buttons">
+                <button class="cta-button cta-button-dark">Записаться на консультацию</button>
+                <button class="cta-button cta-button-dark" style="background-color: transparent; color: #000000; border-color: #000000;">Узнать больше</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 CRM Автоматизация. Все права защищены.</p>
+        <p>
+            <a href="#">Политика конфиденциальности</a> |
+            <a href="#">Условия использования</a> |
+            <a href="#">Контакты</a>
+        </p>
+        <p style="margin-top: 20px; color: #FFD700;">
+            📧 info@crm-automation.com | 📞 +7 (XXX) XXX-XX-XX
+        </p>
+    </footer>
+</body>
+</html>

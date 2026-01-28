@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Поток заявок за 14 дней — лендинг + контекст</title>
+  <meta name="description" content="За 14 дней запустим связку лендинг + контекст. За первые 30 дней — минимум 30 целевых заявок при согласованной максимальной цене заявки. Гарантия: месяц ведения бесплатно при соблюдении условий." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#101a31;
+      --card2:#0e1730;
+      --text:#e7eefc;
+      --muted:#aab7d6;
+      --accent:#6ee7ff;
+      --accent2:#7c3aed;
+      --ok:#34d399;
+      --warn:#fbbf24;
+      --bad:#fb7185;
+      --border:rgba(255,255,255,.10);
+      --shadow:0 20px 50px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:12px;
+      --max:1140px;
+      --gap:18px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      background:radial-gradient(900px 450px at 20% -10%, rgba(124,58,237,.45), transparent 60%),
+                 radial-gradient(900px 450px at 90% 10%, rgba(110,231,255,.30), transparent 60%),
+                 linear-gradient(180deg, #070b14, #0b1220 40%, #070b14);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background:rgba(7,11,20,.65);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background:linear-gradient(135deg, var(--accent2), var(--accent));
+      box-shadow:0 12px 30px rgba(124,58,237,.25);
+    }
+    .nav-links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .nav-links a{color:var(--muted); font-size:14px}
+    .nav-links a:hover{color:var(--text)}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:700;
+      cursor:pointer;
+      transition:.15s transform ease, .15s background ease, .15s border ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.18)}
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(124,58,237,.95), rgba(110,231,255,.75));
+      border-color:rgba(255,255,255,.18);
+      box-shadow:0 16px 40px rgba(124,58,237,.20);
+    }
+    .btn.primary:hover{background:linear-gradient(135deg, rgba(124,58,237,1), rgba(110,231,255,.85))}
+    .btn.small{padding:9px 12px; font-size:14px}
+
+    .hero{padding:56px 0 22px}
+    .grid{display:grid; gap:var(--gap)}
+    .hero-grid{grid-template-columns: 1.2fr .8fr; align-items:start}
+    @media (max-width: 980px){.hero-grid{grid-template-columns:1fr}}
+
+    .eyebrow{color:var(--muted); font-weight:700; letter-spacing:.15em; text-transform:uppercase; font-size:12px}
+    h1{margin:12px 0 10px; font-size:44px; line-height:1.08}
+    @media (max-width: 520px){h1{font-size:36px}}
+    .lead{color:rgba(231,238,252,.90); font-size:18px; max-width:68ch}
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .card.pad{padding:18px}
+
+    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .pill{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .pill b{color:var(--text)}
+
+    .bullets{margin:14px 0 0; padding:0; list-style:none; display:grid; gap:10px}
+    .bullets li{display:flex; gap:10px; align-items:flex-start; color:rgba(231,238,252,.92)}
+    .check{
+      width:20px; height:20px; border-radius:6px;
+      background:rgba(52,211,153,.12);
+      border:1px solid rgba(52,211,153,.35);
+      display:inline-flex; align-items:center; justify-content:center;
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+
+    .section{padding:26px 0}
+    .section h2{margin:0 0 10px; font-size:30px; line-height:1.15}
+    .section p{margin:0; color:var(--muted)}
+
+    .cols-3{grid-template-columns: repeat(3, 1fr)}
+    .cols-2{grid-template-columns: repeat(2, 1fr)}
+    @media (max-width: 980px){.cols-3,.cols-2{grid-template-columns:1fr}}
+
+    .kpi{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .kpi .item{flex:1 1 220px; padding:14px; border-radius:var(--radius2); background:rgba(16,26,49,.55); border:1px solid var(--border)}
+    .kpi .n{font-size:26px; font-weight:900}
+    .kpi .t{color:var(--muted); font-size:13px}
+
+    .step{display:flex; gap:12px}
+    .step .num{
+      width:38px; height:38px; border-radius:14px;
+      background:rgba(110,231,255,.10);
+      border:1px solid rgba(110,231,255,.30);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900;
+      flex:0 0 auto;
+    }
+    .step h3{margin:0 0 6px; font-size:18px}
+    .step p{margin:0; color:var(--muted)}
+
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      background:rgba(124,58,237,.12);
+      border:1px solid rgba(124,58,237,.30);
+      color:rgba(231,238,252,.92);
+      font-size:13px;
+    }
+
+    .guarantee{
+      border:1px solid rgba(110,231,255,.28);
+      background:linear-gradient(180deg, rgba(110,231,255,.10), rgba(124,58,237,.10));
+    }
+
+    .price{
+      display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+    .price .big{font-size:34px; font-weight:1000}
+    .price .sub{color:var(--muted); font-size:13px}
+
+    .muted{color:var(--muted)}
+    .fine{font-size:12px; color:rgba(170,183,214,.85)}
+
+    form{display:grid; gap:10px; margin-top:12px}
+    label{font-size:13px; color:rgba(170,183,214,.95)}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:92px; resize:vertical}
+
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width: 520px){.row{grid-template-columns:1fr}}
+
+    .footer{padding:32px 0 46px; border-top:1px solid var(--border); color:var(--muted)}
+    .footer small{display:block; margin-top:6px}
+
+    .faq details{border:1px solid var(--border); background:rgba(16,26,49,.40); border-radius:14px; padding:12px 14px}
+    .faq summary{cursor:pointer; font-weight:800}
+    .faq p{margin:10px 0 0; color:var(--muted)}
+
+    .note{
+      border:1px dashed rgba(255,255,255,.18);
+      background:rgba(255,255,255,.03);
+      border-radius:14px;
+      padding:12px;
+      color:rgba(231,238,252,.90);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:14px; opacity:.95">[Название агентства]</div>
+          <div class="fine">Лендинг + контекстная реклама за 14 дней</div>
+        </div>
+      </div>
+
+      <nav class="nav-links" aria-label="Навигация">
+        <a href="#what">Что сделаем</a>
+        <a href="#process">Как работаем</a>
+        <a href="#proof">Доказательства</a>
+        <a href="#guarantee">Гарантия</a>
+        <a href="#price">Цена</a>
+        <a class="btn small primary" href="#call">Разобрать ваш кейс</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container grid hero-grid">
+        <div>
+          <div class="eyebrow">Спринт-запуск воронки за 14 дней</div>
+          <h1>Лендинг + контекст → <span style="color:var(--accent)">минимум 30 целевых заявок за 30 дней</span></h1>
+          <p class="lead">
+            Для B2B-услуг: упакуем оффер, сделаем конверсионный лендинг, запустим поисковую рекламу и аналитику.
+            KPI фиксируем заранее: максимум по цене заявки и критерии «целевого лида».
+          </p>
+
+          <div class="pill-row" role="list">
+            <div class="pill" role="listitem"><b>Срок запуска:</b> 14 дней</div>
+            <div class="pill" role="listitem"><b>KPI:</b> 30 целевых заявок/30 дней</div>
+            <div class="pill" role="listitem"><b>Контроль:</b> дашборд + разборы</div>
+          </div>
+
+          <ul class="bullets">
+            <li><span class="check">✓</span><span>Сделаем оффер «за что оставить заявку» (без воды и "мы качественно").</span></li>
+            <li><span class="check">✓</span><span>Настроим контекст по сегментам запросов + минус-слова, чтобы отсечь мусор.</span></li>
+            <li><span class="check">✓</span><span>Подключим аналитику и квалификацию лидов: вы увидите, что приносит продажи.</span></li>
+          </ul>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px">
+            <a class="btn primary" href="#call">Получить план запуска за 15 минут</a>
+            <a class="btn" href="#price">Посмотреть состав и цену</a>
+          </div>
+
+          <div class="note" style="margin-top:14px">
+            <b>Важно:</b> это прототип. Вставьте вашу нишу, кейсы, цифры и контакты — и можно отдавать в дизайн/разработку.
+          </div>
+        </div>
+
+        <aside class="card pad" id="call" aria-label="Форма заявки">
+          <div class="badge">Бесплатный разбор → получите 3 быстрых улучшения в рекламе/сайте</div>
+          <h2 style="margin:12px 0 6px; font-size:22px">Оставьте заявку</h2>
+          <p class="muted" style="margin:0 0 10px">Свяжемся в течение рабочего дня и скажем, достижим ли KPI в вашей нише.</p>
+
+          <form>
+            <div class="row">
+              <div>
+                <label for="name">Имя</label>
+                <input id="name" name="name" placeholder="Иван" autocomplete="name" required />
+              </div>
+              <div>
+                <label for="phone">Телефон / мессенджер</label>
+                <input id="phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="site">Сайт (если есть)</label>
+              <input id="site" name="site" placeholder="https://example.ru" autocomplete="url" />
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="niche">Ниша</label>
+                <input id="niche" name="niche" placeholder="Вентиляция / юр. услуги / бухгалтерия" required />
+              </div>
+              <div>
+                <label for="budget">Рекламный бюджет/мес</label>
+                <select id="budget" name="budget" required>
+                  <option value="">Выберите</option>
+                  <option>до 50 000 ₽</option>
+                  <option>50 000–150 000 ₽</option>
+                  <option>150 000–300 000 ₽</option>
+                  <option>300 000 ₽+</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="goal">Что хотите получить (1–2 предложения)</label>
+              <textarea id="goal" name="goal" placeholder="Например: заявки на аудит/коммерческое предложение, целевая цена лида — до 2500 ₽"></textarea>
+            </div>
+
+            <button class="btn primary" type="submit">Отправить заявку</button>
+            <div class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="what">
+      <div class="container">
+        <h2>Что именно вы получите за 14 дней</h2>
+        <p>Не «сайт и рекламу», а рабочую связку: оффер → лендинг → заявки → аналитика → оптимизация.</p>
+
+        <div class="grid cols-3" style="margin-top:14px">
+          <div class="card pad">
+            <h3 style="margin:0 0 6px">Лендинг под лидогенерацию</h3>
+            <p class="muted">Структура: ценность, кейсы, процесс, ответы на возражения, форма, доверие.</p>
+            <div class="kpi">
+              <div class="item"><div class="n">1</div><div class="t">страница</div></div>
+              <div class="item"><div class="n">2</div><div class="t">итерации правок по данным</div></div>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin:0 0 6px">Контекст (поиск)</h3>
+            <p class="muted">Сегменты запросов, минус-слова, UTM, объявления под каждый кластер.</p>
+            <div class="kpi">
+              <div class="item"><div class="n">3–6</div><div class="t">групп запросов</div></div>
+              <div class="item"><div class="n">7</div><div class="t">день — аудит и коррекция</div></div>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin:0 0 6px">Аналитика и качество лидов</h3>
+            <p class="muted">Цели, события, коллтрекинг (при необходимости), критерии "целевого лида".</p>
+            <div class="kpi">
+              <div class="item"><div class="n">1</div><div class="t">дашборд для контроля</div></div>
+              <div class="item"><div class="n">2</div><div class="t">разбора/неделю</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <h2>Как работаем (план по дням)</h2>
+        <p>Вы видите прогресс и решения, а не «мы настраиваем рекламу».</p>
+
+        <div class="grid cols-2" style="margin-top:14px">
+          <div class="card pad">
+            <div class="step">
+              <div class="num">1</div>
+              <div>
+                <h3>День 1–2: оффер и критерии целевого лида</h3>
+                <p>Интервью 60 минут → формулируем оффер, ограничения, квалификацию заявки, KPI по цене лида.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <div class="step">
+              <div class="num">2</div>
+              <div>
+                <h3>День 3–7: лендинг и аналитика</h3>
+                <p>Собираем страницу, добавляем доверие/кейсы/FAQ, подключаем цели и события, готовим форму/уведомления.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <div class="step">
+              <div class="num">3</div>
+              <div>
+                <h3>День 8–10: семантика и объявления</h3>
+                <p>Кластеры запросов, минус-слова, тексты объявлений и расширения. Отдельно — "горячие" и "тёплые" запросы.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <div class="step">
+              <div class="num">4</div>
+              <div>
+                <h3>День 11–14: запуск + первичная оптимизация</h3>
+                <p>Запускаем, проверяем трекинг, быстро убираем мусорные запросы, корректируем ставки/тексты по данным.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card pad" style="margin-top:14px">
+          <h3 style="margin:0 0 6px">Что потребуется от вас</h3>
+          <p class="muted">Доступы к рекламе/аналитике, 1 созвон, материалы (логотип/фото при наличии), соблюдение регламента обработки лидов.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proof">
+      <div class="container">
+        <h2>Доказательства (вставьте ваши кейсы)</h2>
+        <p>Лучше 3 кейса с цифрами, чем 30 общих отзывов.</p>
+
+        <div class="grid cols-3" style="margin-top:14px">
+          <div class="card pad">
+            <h3 style="margin:0 0 6px">Кейс №1 — [Ниша]</h3>
+            <p class="muted">30 дней: 52 заявки → 11 продаж. Цена заявки: 1 980 ₽. Окупаемость: [X].</p>
+            <div class="fine">Источник: поиск. Ограничение: гео [город].</div>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 6px">Кейс №2 — [Ниша]</h3>
+            <p class="muted">30 дней: 38 целевых заявок → 7 договоров. Цена заявки: 2 450 ₽.</p>
+            <div class="fine">Ключевое изменение: оффер + минус-слова + скорость ответа.</div>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 6px">Кейс №3 — [Ниша]</h3>
+            <p class="muted">30 дней: 64 заявки, 80% — квалифицированные. Цена: 1 700 ₽.</p>
+            <div class="fine">Ключевое изменение: сегментация запросов и отдельные посадочные блоки.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="guarantee">
+      <div class="container">
+        <div class="card pad guarantee">
+          <h2 style="margin:0 0 8px">Гарантия (риск-реверс)</h2>
+          <p style="margin:0; color:rgba(231,238,252,.92)">
+            Если за <b>30 дней</b> после запуска не получено <b>минимум 30 целевых заявок</b> при соблюдении условий —
+            <b>ведём рекламу и оптимизацию бесплатно ещё 30 дней</b>.
+          </p>
+          <div class="grid cols-2" style="margin-top:14px">
+            <div class="card pad" style="background:rgba(16,26,49,.45)">
+              <h3 style="margin:0 0 6px">Условия со стороны клиента</h3>
+              <ul class="bullets">
+                <li><span class="check">✓</span><span>Согласованный рекламный бюджет и гео.</span></li>
+                <li><span class="check">✓</span><span>Утверждённый оффер и критерии «целевого лида».</span></li>
+                <li><span class="check">✓</span><span>Соблюдение регламента обработки заявок (скорость ответа/скрипт).</span></li>
+              </ul>
+            </div>
+            <div class="card pad" style="background:rgba(16,26,49,.45)">
+              <h3 style="margin:0 0 6px">Что делаем мы</h3>
+              <ul class="bullets">
+                <li><span class="check">✓</span><span>Еженедельная оптимизация кампаний и минус-слов.</span></li>
+                <li><span class="check">✓</span><span>2 итерации улучшения лендинга по данным.</span></li>
+                <li><span class="check">✓</span><span>Прозрачные отчёты по стоимости и качеству лидов.</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="fine" style="margin-top:10px">Формулировку гарантии и KPI адаптируйте под нишу и средний чек.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="price">
+      <div class="container">
+        <h2>Цена и состав пакета</h2>
+        <p>Фиксированная стоимость за внедрение. Рекламный бюджет — напрямую площадке.</p>
+
+        <div class="grid cols-2" style="margin-top:14px">
+          <div class="card pad">
+            <div class="price">
+              <div>
+                <div class="big">220 000 ₽</div>
+                <div class="sub">Спринт 14 дней (лендинг + запуск контекста)</div>
+              </div>
+              <a class="btn primary" href="#call">Забронировать разбор</a>
+            </div>
+
+            <ul class="bullets" style="margin-top:14px">
+              <li><span class="check">✓</span><span>Упаковка оффера (созвон + тексты и смыслы).</span></li>
+              <li><span class="check">✓</span><span>Лендинг 1 страница + базовые интеграции заявок.</span></li>
+              <li><span class="check">✓</span><span>Поисковая реклама: кластеры, объявления, минус-слова, UTM.</span></li>
+              <li><span class="check">✓</span><span>Аналитика: цели/события, отчётность, дашборд контроля.</span></li>
+              <li><span class="check">✓</span><span>Оптимизация: аудит на 7-й день + еженедельные разборы.</span></li>
+            </ul>
+
+            <div class="fine">Условия оплаты (пример): 60% старт, 40% в день запуска рекламы.</div>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin:0 0 6px">Кому подходит</h3>
+            <p class="muted">Если у вас B2B-услуга, понятная география и средний чек позволяет окупать лидогенерацию.</p>
+
+            <div class="grid" style="margin-top:12px">
+              <div class="card pad" style="background:rgba(16,26,49,.45)">
+                <b style="color:var(--ok)">Подходит</b>
+                <div class="muted">Монтаж/сервис, юридические услуги, бухгалтерия, производство, коммерческий ремонт, консалтинг.</div>
+              </div>
+              <div class="card pad" style="background:rgba(16,26,49,.45)">
+                <b style="color:var(--warn)">Нужна диагностика</b>
+                <div class="muted">Очень низкий чек, сложная ниша без спроса, нет возможности быстро отвечать на заявки.</div>
+              </div>
+              <div class="card pad" style="background:rgba(16,26,49,.45)">
+                <b style="color:var(--bad)">Не берём</b>
+                <div class="muted">"Сделайте как-нибудь", нет бюджета, невозможно квалифицировать лид, не готовы соблюдать регламент.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>FAQ</h2>
+        <p>Снимите типовые возражения прямо на странице.</p>
+
+        <div class="grid faq" style="margin-top:14px">
+          <details>
+            <summary>Что значит «целевой лид»?</summary>
+            <p>Это заявка, которая соответствует заранее согласованным критериям: ниша/гео/потребность/бюджет/сроки. Критерии фиксируются до запуска.</p>
+          </details>
+          <details>
+            <summary>А если у меня нет сайта?</summary>
+            <p>Ок: в рамках спринта мы делаем лендинг с нуля. От вас — материалы (если есть) и 1 созвон для извлечения смыслов.</p>
+          </details>
+          <details>
+            <summary>Почему только поиск, а не РСЯ/медиа?</summary>
+            <p>Поиск быстрее даёт проверку спроса и качества заявок. Доп. каналы подключаются после подтверждения экономики.</p>
+          </details>
+          <details>
+            <summary>Сколько нужен рекламный бюджет?</summary>
+            <p>Зависит от ниши и региона. На разборе скажем вилку и оценим достижимость KPI по цене заявки.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card pad" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
+          <div>
+            <h2 style="margin:0 0 6px">Готовы запустить воронку за 14 дней?</h2>
+            <p class="muted" style="margin:0">Оставьте заявку — оценим нишу, предложим KPI и покажем план запуска.</p>
+          </div>
+          <a class="btn primary" href="#call">Получить план запуска</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+        <div>
+          <b>[Название агентства]</b>
+          <small>Контакты: [телефон], [почта], [мессенджер]</small>
+        </div>
+        <div class="fine">
+          ИНН/ОГРН (если нужно) • Политика конфиденциальности • Договор оферты
+        </div>
+      </div>
+      <small class="fine">© [год]. Информация на сайте не является публичной офертой.</small>
+    </div>
+  </footer>
+</body>
+</html>

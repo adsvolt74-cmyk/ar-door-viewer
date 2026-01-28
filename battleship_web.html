@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Морской бой - Веб версия</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .game-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .board-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .board-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 5px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .cell {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #e8f4f8;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .cell:hover {
+            background: #d0e8f2;
+            transform: scale(1.05);
+        }
+
+        .cell.ship {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .cell.hit {
+            background: #f44336;
+            color: white;
+        }
+
+        .cell.miss {
+            background: #2196F3;
+            color: white;
+        }
+
+        .cell.unknown {
+            background: #e8f4f8;
+        }
+
+        .cell.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .status {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 1.1em;
+        }
+
+        .status-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .status-value {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f44336;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #da190b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+        }
+
+        .message {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .message.info {
+            background: #e3f2fd;
+            color: #1976d2;
+            border: 2px solid #1976d2;
+        }
+
+        .message.success {
+            background: #e8f5e9;
+            color: #388e3c;
+            border: 2px solid #388e3c;
+        }
+
+        .message.error {
+            background: #ffebee;
+            color: #c62828;
+            border: 2px solid #c62828;
+        }
+
+        .message.warning {
+            background: #fff3e0;
+            color: #e65100;
+            border: 2px solid #e65100;
+        }
+
+        .game-over {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .game-over h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .game-over p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-symbol {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        .legend-symbol.ship {
+            background: #4CAF50;
+        }
+
+        .legend-symbol.hit {
+            background: #f44336;
+        }
+
+        .legend-symbol.miss {
+            background: #2196F3;
+        }
+
+        .legend-symbol.unknown {
+            background: #e8f4f8;
+            color: #333;
+            border: 1px solid #bbb;
+        }
+
+        @media (max-width: 768px) {
+            .game-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .cell {
+                width: 40px;
+                height: 40px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚢 Морской бой 🚢</h1>
+        <p class="subtitle">Веб-версия игры</p>
+
+        <div id="message"></div>
+
+        <div class="game-wrapper">
+            <!-- Поле игрока -->
+            <div class="board-section">
+                <div class="board-title">Ваше поле</div>
+                <div class="board" id="playerBoard"></div>
+                <div class="status">
+                    <div class="status-item">
+                        <span class="status-label">Ваши корабли:</span>
+                        <span class="status-value" id="playerShips">6</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Поле компьютера -->
+            <div class="board-section">
+                <div class="board-title">Поле противника</div>
+                <div class="board" id="computerBoard"></div>
+                <div class="status">
+                    <div class="status-item">
+                        <span class="status-label">Корабли противника:</span>
+                        <span class="status-value" id="computerShips">6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn-primary" onclick="startNewGame()">🎮 Новая игра</button>
+            <button class="btn-secondary" onclick="resetGame()">🔄 Сброс</button>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-symbol ship">■</div>
+                <span>Корабль</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-symbol hit">X</div>
+                <span>Попадание</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-symbol miss">•</div>
+                <span>Промах</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-symbol unknown">~</div>
+                <span>Неизвестно</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Игровые параметры
+        const BOARD_SIZE = 6;
+        const SHIP_SIZES = [3, 2, 2, 1, 1, 1];
+
+        // Состояние игры
+        let gameState = {
+            playerBoard: [],
+            computerBoard: [],
+            playerShots: new Set(),
+            computerShots: new Set(),
+            currentTurn: 'player',
+            gameOver: false,
+            winner: null
+        };
+
+        // Инициализация игры
+        function initGame() {
+            gameState.playerBoard = createBoard();
+            gameState.computerBoard = createBoard();
+            placeShips(gameState.playerBoard);
+            placeShips(gameState.computerBoard);
+            gameState.playerShots = new Set();
+            gameState.computerShots = new Set();
+            gameState.currentTurn = 'player';
+            gameState.gameOver = false;
+            gameState.winner = null;
+            renderBoards();
+            showMessage('Игра начата! Ваш ход.', 'info');
+        }
+
+        // Создание пустого поля
+        function createBoard() {
+            return Array(BOARD_SIZE).fill(null).map(() => Array(BOARD_SIZE).fill(0));
+        }
+
+        // Размещение кораблей
+        function placeShips(board) {
+            for (let size of SHIP_SIZES) {
+                let placed = false;
+                while (!placed) {
+                    const x = Math.floor(Math.random() * BOARD_SIZE);
+                    const y = Math.floor(Math.random() * BOARD_SIZE);
+                    const horizontal = Math.random() > 0.5;
+                    
+                    if (canPlaceShip(board, x, y, size, horizontal)) {
+                        for (let i = 0; i < size; i++) {
+                            if (horizontal) {
+                                board[y][x + i] = 1;
+                            } else {
+                                board[y + i][x] = 1;
+                            }
+                        }
+                        placed = true;
+                    }
+                }
+            }
+        }
+
+        // Проверка возможности размещения корабля
+        function canPlaceShip(board, x, y, size, horizontal) {
+            // Проверка границ
+            if (horizontal && x + size > BOARD_SIZE) return false;
+            if (!horizontal && y + size > BOARD_SIZE) return false;
+
+            // Проверка пересечений и буферной зоны
+            for (let i = -1; i <= size; i++) {
+                for (let j = -1; j <= 1; j++) {
+                    let nx = horizontal ? x + i : x + j;
+                    let ny = horizontal ? y + j : y + i;
+                    
+                    if (nx >= 0 && nx < BOARD_SIZE && ny >= 0 && ny < BOARD_SIZE) {
+                        if (board[ny][nx] === 1) return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        // Обработка выстрела
+        function shoot(board, x, y, isPlayer) {
+            const shots = isPlayer ? gameState.playerShots : gameState.computerShots;
+            const key = `${x},${y}`;
+
+            if (shots.has(key)) {
+                showMessage('Вы уже стреляли в эту клетку!', 'warning');
+                return false;
+            }
+
+            shots.add(key);
+
+            if (board[y][x] === 1) {
+                board[y][x] = 2; // Попадание
+                return true;
+            } else {
+                board[y][x] = 3; // Промах
+                return false;
+            }
+        }
+
+        // Ход игрока
+        function playerShoot(x, y) {
+            if (gameState.gameOver) return;
+            if (gameState.currentTurn !== 'player') return;
+
+            const hit = shoot(gameState.computerBoard, x, y, true);
+            
+            if (hit) {
+                showMessage('Попадание! Ваш дополнительный ход.', 'success');
+            } else {
+                showMessage('Промах! Ход компьютера.', 'info');
+                gameState.currentTurn = 'computer';
+                setTimeout(computerShoot, 1000);
+            }
+
+            checkWinner();
+            renderBoards();
+        }
+
+        // Ход компьютера
+        function computerShoot() {
+            if (gameState.gameOver) return;
+
+            let x, y, key;
+            do {
+                x = Math.floor(Math.random() * BOARD_SIZE);
+                y = Math.floor(Math.random() * BOARD_SIZE);
+                key = `${x},${y}`;
+            } while (gameState.computerShots.has(key));
+
+            const hit = shoot(gameState.playerBoard, x, y, false);
+
+            if (hit) {
+                showMessage(`Компьютер попал в ${String.fromCharCode(65 + x)}${y + 1}! Его дополнительный ход.`, 'warning');
+                setTimeout(computerShoot, 1000);
+            } else {
+                showMessage(`Компьютер стрелял в ${String.fromCharCode(65 + x)}${y + 1} и промахнулся. Ваш ход.`, 'info');
+                gameState.currentTurn = 'player';
+            }
+
+            checkWinner();
+            renderBoards();
+        }
+
+        // Проверка победителя
+        function checkWinner() {
+            const playerShipsLeft = countShips(gameState.playerBoard);
+            const computerShipsLeft = countShips(gameState.computerBoard);
+
+            if (computerShipsLeft === 0) {
+                gameState.gameOver = true;
+                gameState.winner = 'player';
+                showMessage('🎉 ВЫ ПОБЕДИЛИ! 🎉', 'success');
+            } else if (playerShipsLeft === 0) {
+                gameState.gameOver = true;
+                gameState.winner = 'computer';
+                showMessage('💀 ВЫ ПРОИГРАЛИ! 💀', 'error');
+            }
+
+            updateShipCounts();
+        }
+
+        // Подсчет оставшихся кораблей
+        function countShips(board) {
+            let count = 0;
+            for (let y = 0; y < BOARD_SIZE; y++) {
+                for (let x = 0; x < BOARD_SIZE; x++) {
+                    if (board[y][x] === 1) count++;
+                }
+            }
+            return count;
+        }
+
+        // Обновление счетчика кораблей
+        function updateShipCounts() {
+            const playerShips = countShips(gameState.playerBoard);
+            const computerShips = countShips(gameState.computerBoard);
+            document.getElementById('playerShips').textContent = playerShips;
+            document.getElementById('computerShips').textContent = computerShips;
+        }
+
+        // Отрисовка полей
+        function renderBoards() {
+            renderBoard('playerBoard', gameState.playerBoard, false);
+            renderBoard('computerBoard', gameState.computerBoard, true);
+        }
+
+        // Отрисовка одного поля
+        function renderBoard(elementId, board, isEnemy) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = '';
+
+            for (let y = 0; y < BOARD_SIZE; y++) {
+                for (let x = 0; x < BOARD_SIZE; x++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+
+                    const value = board[y][x];
+                    if (value === 1 && !isEnemy) {
+                        cell.classList.add('ship');
+                        cell.textContent = '■';
+                    } else if (value === 2) {
+                        cell.classList.add('hit');
+                        cell.textContent = 'X';
+                    } else if (value === 3) {
+                        cell.classList.add('miss');
+                        cell.textContent = '•';
+                    } else {
+                        cell.classList.add('unknown');
+                        cell.textContent = '~';
+                    }
+
+                    if (isEnemy && gameState.currentTurn === 'player' && !gameState.gameOver) {
+                        cell.style.cursor = 'pointer';
+                        cell.onclick = () => playerShoot(x, y);
+                    } else {
+                        cell.style.cursor = 'default';
+                    }
+
+                    element.appendChild(cell);
+                }
+            }
+        }
+
+        // Показать сообщение
+        function showMessage(text, type = 'info') {
+            const messageDiv = document.getElementById('message');
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = text;
+        }
+
+        // Начать новую игру
+        function startNewGame() {
+            initGame();
+        }
+
+        // Сброс игры
+        function resetGame() {
+            gameState = {
+                playerBoard: [],
+                computerBoard: [],
+                playerShots: new Set(),
+                computerShots: new Set(),
+                currentTurn: 'player',
+                gameOver: false,
+                winner: null
+            };
+            document.getElementById('message').innerHTML = '';
+            document.getElementById('playerShips').textContent = '6';
+            document.getElementById('computerShips').textContent = '6';
+            document.getElementById('playerBoard').innerHTML = '';
+            document.getElementById('computerBoard').innerHTML = '';
+        }
+
+        // Инициализация при загрузке страницы
+        window.onload = () => {
+            initGame();
+        };
+    </script>
+</body>
+</html>

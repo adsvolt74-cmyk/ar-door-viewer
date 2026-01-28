@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>АТ-Прома - Видеопродакшн, который привлекает клиентов</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: opacity 0.3s;
+    }
+
+    .nav a:hover {
+      opacity: 0.8;
+    }
+
+    .cta-header {
+      background: #ffc107;
+      color: #1e3c72;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .cta-header:hover {
+      transform: scale(1.05);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      margin-bottom: 30px;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    .hero-highlight {
+      background: #ffc107;
+      color: #1e3c72;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .hero-cta {
+      background: #ffc107;
+      color: #1e3c72;
+      padding: 18px 40px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .hero-cta:hover {
+      background: #ffb300;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .hero-subtext {
+      font-size: 14px;
+      margin-top: 15px;
+      opacity: 0.9;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* SECTION */
+    section {
+      padding: 80px 20px;
+    }
+
+    section h2 {
+      font-size: 36px;
+      margin-bottom: 50px;
+      text-align: center;
+      color: #1e3c72;
+    }
+
+    /* PROBLEMS SECTION */
+    .problems {
+      background: #f8f9fa;
+    }
+
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .problem-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-left: 4px solid #dc3545;
+      transition: transform 0.3s;
+    }
+
+    .problem-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .problem-card h3 {
+      color: #dc3545;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .problem-card p {
+      color: #666;
+      font-size: 15px;
+    }
+
+    /* SOLUTION SECTION */
+    .solution {
+      background: white;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .solution-card {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .solution-card h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .solution-card p {
+      font-size: 15px;
+      opacity: 0.95;
+    }
+
+    .solution-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    /* VALUE STACK SECTION */
+    .value-stack {
+      background: #f8f9fa;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .stack-item {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-top: 4px solid #2a5298;
+    }
+
+    .stack-item h4 {
+      color: #1e3c72;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .stack-item p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .stack-label {
+      display: inline-block;
+      background: #2a5298;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    /* GUARANTEE SECTION */
+    .guarantee {
+      background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+      border: 2px solid #28a745;
+      border-radius: 10px;
+      padding: 40px;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .guarantee h3 {
+      color: #155724;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .guarantee p {
+      color: #155724;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    /* RESULTS SECTION */
+    .results {
+      background: white;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .result-card {
+      background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .result-number {
+      font-size: 36px;
+      font-weight: bold;
+      color: #1e3c72;
+      margin-bottom: 10px;
+    }
+
+    .result-label {
+      color: #666;
+      font-size: 15px;
+    }
+
+    /* PROCESS SECTION */
+    .process {
+      background: #f8f9fa;
+    }
+
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .process-step {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-top: 4px solid #2a5298;
+    }
+
+    .step-number {
+      background: #2a5298;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 auto 15px;
+    }
+
+    .process-step h4 {
+      color: #1e3c72;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .process-step p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* TESTIMONIALS SECTION */
+    .testimonials {
+      background: white;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .testimonial {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 10px;
+      border-left: 4px solid #ffc107;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .testimonial-text {
+      color: #333;
+      font-size: 15px;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      color: #1e3c72;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .testimonial-role {
+      color: #666;
+      font-size: 13px;
+    }
+
+    /* PRICING SECTION */
+    .pricing {
+      background: #f8f9fa;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .pricing-card {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      text-align: center;
+      border-top: 4px solid #2a5298;
+      transition: transform 0.3s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pricing-card.featured {
+      border-top: 4px solid #ffc107;
+      transform: scale(1.05);
+    }
+
+    .pricing-card h3 {
+      color: #1e3c72;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .price {
+      font-size: 36px;
+      font-weight: bold;
+      color: #2a5298;
+      margin: 20px 0;
+    }
+
+    .price-period {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .pricing-features {
+      text-align: left;
+      margin: 25px 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .pricing-features li {
+      margin-bottom: 10px;
+      list-style: none;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .pricing-features li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .pricing-cta {
+      background: #2a5298;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+      margin-top: 20px;
+    }
+
+    .pricing-cta:hover {
+      background: #1e3c72;
+    }
+
+    .pricing-card.featured .pricing-cta {
+      background: #ffc107;
+      color: #1e3c72;
+    }
+
+    .pricing-card.featured .pricing-cta:hover {
+      background: #ffb300;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+
+    .cta-button {
+      background: #ffc107;
+      color: #1e3c72;
+      padding: 18px 50px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background: #ffb300;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1e3c72;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: opacity 0.3s;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 20px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      section h2 {
+        font-size: 28px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .pricing-card.featured {
+        transform: scale(1);
+      }
+
+      .problems-grid,
+      .solution-grid,
+      .stack-grid,
+      .results-grid,
+      .process-timeline,
+      .testimonials-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        🎬 АТ-Прома
+      </div>
+      <nav class="nav">
+        <a href="#problems">Проблемы</a>
+        <a href="#solution">Решение</a>
+        <a href="#process">Процесс</a>
+        <a href="#pricing">Цены</a>
+        <button class="cta-header">Заказать</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-container">
+      <h1>Видеопродакшн, который <span class="hero-highlight">привлекает клиентов</span></h1>
+      <p class="hero-subtitle">За 5-10 дней получите профессиональное видео, которое увеличит продажи и укрепит репутацию</p>
+      <button class="hero-cta">📞 Заказать видео сейчас</button>
+      <p class="hero-subtext">✓ Быстро ✓ Качественно ✓ С гарантией</p>
+    </div>
+  </section>
+
+  <!-- PROBLEMS SECTION -->
+  <section class="problems" id="problems">
+    <div class="container">
+      <h2>Какие проблемы мы решаем?</h2>
+      <div class="problems-grid">
+        <div class="problem-card">
+          <h3>❌ Нет новых клиентов</h3>
+          <p>Конкуренты активнее в маркетинге, а вы отстаёте. Выручка не растёт.</p>
+        </div>
+        <div class="problem-card">
+          <h3>❌ Нет узнаваемости</h3>
+          <p>Клиенты не знают о вашей компании. Нет доверия к бренду.</p>
+        </div>
+        <div class="problem-card">
+          <h3>❌ Срыв сроков</h3>
+          <p>Видеопродакшены обещают сроки, но не выполняют. Потеря времени и денег.</p>
+        </div>
+        <div class="problem-card">
+          <h3>❌ Некачественный материал</h3>
+          <p>Видео выглядит дешево и непрофессионально. Компания теряет доверие.</p>
+        </div>
+        <div class="problem-card">
+          <h3>❌ Непонимание задачи</h3>
+          <p>Видеопродакшен не понимает, что нужно. Переделки, разочарование.</p>
+        </div>
+        <div class="problem-card">
+          <h3>❌ Высокие цены</h3>
+          <p>Видеопродакшены берут слишком дорого. Нет бюджета на маркетинг.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION SECTION -->
+  <section class="solution" id="solution">
+    <div class="container">
+      <h2>Как мы решаем эти проблемы?</h2>
+      <div class="solution-grid">
+        <div class="solution-card">
+          <div class="solution-icon">⚡</div>
+          <h3>Быстро</h3>
+          <p>5-10 дней от заявки до готового видео. В 2-3 раза быстрее конкурентов.</p>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">🎬</div>
+          <h3>Качественно</h3>
+          <p>Живые эмоции, честность, профессионализм. Видео, которое продаёт.</p>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">💼</div>
+          <h3>Под ключ</h3>
+          <p>Интервью, сценарий, съёмка, монтаж. Мы всё делаем, вы только одобряете.</p>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">🛡️</div>
+          <h3>С гарантией</h3>
+          <p>Если видео не понравилось - переделаем бесплатно или вернём 50% денег.</p>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">💰</div>
+          <h3>Справедливая цена</h3>
+          <p>От 30 000 ₽. Цена соответствует результату, не переплачиваете.</p>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">📈</div>
+          <h3>Результат</h3>
+          <p>300+ видео за 2 года. 10 постоянных клиентов. Доказанный результат.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE STACK SECTION -->
+  <section class="value-stack">
+    <div class="container">
+      <h2>Что входит в пакет?</h2>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <span class="stack-label">ЯДРО</span>
+          <h4>Профессиональное видео</h4>
+          <p>Интервью + Сценарий + Съёмка + Монтаж + Звук + Цветокоррекция</p>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">УСИЛИТЕЛИ</span>
+          <h4>Консультация</h4>
+          <p>Мы понимаем ваши цели и создаём видео, которое работает на результат</p>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">УСКОРИТЕЛИ</span>
+          <h4>Быстрый процесс</h4>
+          <p>Готовые шаблоны, быстрый монтаж, дашборд контроля на каждом этапе</p>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">СНИЖЕНИЕ УСИЛИЙ</span>
+          <h4>Мы всё делаем</h4>
+          <p>Вы только одобряете результат. Регламент обработки, быстрые ответы.</p>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">БОНУСЫ</span>
+          <h4>Рилсы и субтитры</h4>
+          <p>Готовые видео для TikTok, Instagram, YouTube. Субтитры для соцсетей.</p>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">БОНУСЫ</span>
+          <h4>Несколько вариантов</h4>
+          <p>2-3 варианта видео на выбор. Выбираете лучший вариант.</p>
+        </div>
+      </div>
+
+      <div class="guarantee">
+        <h3>🛡️ Гарантия качества</h3>
+        <p><strong>Если видео не понравилось - переделаем бесплатно или вернём 50% денег</strong></p>
+        <p>Мы уверены в качестве. Поэтому мы готовы гарантировать результат.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section class="results">
+    <div class="container">
+      <h2>Наши результаты</h2>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-number">300+</div>
+          <div class="result-label">Видео создано за 2 года</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">30-50</div>
+          <div class="result-label">Компаний-клиентов работают с нами</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">10</div>
+          <div class="result-label">Постоянных клиентов возвращаются снова</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">5-10</div>
+          <div class="result-label">Дней на выполнение (в 2-3 раза быстрее)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="process" id="process">
+    <div class="container">
+      <h2>Как это работает?</h2>
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h4>День 1-2</h4>
+          <p><strong>Интервью и сценарий</strong></p>
+          <p>Мы проводим интервью, понимаем цели, пишем сценарий</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h4>День 3-4</h4>
+          <p><strong>Съёмка</strong></p>
+          <p>Приезжаем на место, снимаем видео с живыми эмоциями</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h4>День 5-7</h4>
+          <p><strong>Монтаж</strong></p>
+          <p>Монтируем видео, добавляем звук, цветокоррекцию</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h4>День 8-10</h4>
+          <p><strong>Доставка</strong></p>
+          <p>Готовое видео, рилсы, субтитры, несколько вариантов</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>Что говорят наши клиенты?</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p class="testimonial-text">"Быстро, качественно, без лишних вопросов. Видео получилось профессиональным. Рекомендую!"</p>
+          <p class="testimonial-author">Иван Петров</p>
+          <p class="testimonial-role">Директор производственной компании</p>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"Мы получили видео за 7 дней. Это спасло нас. Видео показало нашу компетентность, и клиенты начали доверять."</p>
+          <p class="testimonial-author">Сергей Иванов</p>
+          <p class="testimonial-role">Партнёр консалтинговой фирмы</p>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"Компания Агат получила заказ благодаря видео. Видео показало профессионализм, и клиент доверился нам."</p>
+          <p class="testimonial-author">Мария Сидорова</p>
+          <p class="testimonial-role">Коммерческий директор</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2>Цены</h2>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>📹 Базовый</h3>
+          <p class="price-period">Для стартапов и малых компаний</p>
+          <div class="price">30 000 ₽</div>
+          <p class="price-period">от 30 000 до 100 000 ₽</p>
+          <ul class="pricing-features">
+            <li>Простое видео</li>
+            <li>1 вариант</li>
+            <li>5-7 дней</li>
+            <li>Интервью + монтаж</li>
+            <li>Гарантия качества</li>
+          </ul>
+          <button class="pricing-cta">Выбрать</button>
+        </div>
+        <div class="pricing-card featured">
+          <h3>🎬 Стандартный</h3>
+          <p class="price-period">Самый популярный пакет</p>
+          <div class="price">150 000 ₽</div>
+          <p class="price-period">от 100 000 до 300 000 ₽</p>
+          <ul class="pricing-features">
+            <li>Профессиональное видео</li>
+            <li>2 варианта</li>
+            <li>7-10 дней</li>
+            <li>Интервью + сценарий + монтаж</li>
+            <li>Рилсы и субтитры</li>
+            <li>Еженедельный контроль</li>
+            <li>Гарантия качества</li>
+          </ul>
+          <button class="pricing-cta">Выбрать</button>
+        </div>
+        <div class="pricing-card">
+          <h3>🏆 Премиум</h3>
+          <p class="price-period">Полный спектр услуг</p>
+          <div class="price">300 000 ₽</div>
+          <p class="price-period">от 300 000 до 550 000 ₽</p>
+          <ul class="pricing-features">
+            <li>Полный спектр услуг</li>
+            <li>3+ варианта</li>
+            <li>10 дней</li>
+            <li>Интервью + сценарий + съёмка + монтаж</li>
+            <li>Рилсы, субтитры, несколько вариантов</li>
+            <li>Консультация по маркетингу</li>
+            <li>Еженедельный контроль</li>
+            <li>Гарантия качества</li>
+          </ul>
+          <button class="pricing-cta">Выбрать</button>
+        </div>
+      </div>
+
+      <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; border-radius: 8px; margin-top: 40px;">
+        <p style="color: #333; font-size: 16px;"><strong>💡 Платёж:</strong> 50% предоплата, 50% после выполнения</p>
+        <p style="color: #666; font-size: 14px; margin-top: 10px;">Это показывает, что мы уверены в качестве и готовы рисковать</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Готовы получить видео, которое привлечёт клиентов?</h2>
+      <p>Сейчас свободны 2 слота. Следующий свободный слот - через 2 недели.</p>
+      <p style="font-size: 16px; opacity: 0.9;">Если хотите видео в этом месяце - решите в течение 3 дней</p>
+      <button class="cta-button">📞 Заказать видео сейчас</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#problems">Проблемы</a>
+        <a href="#solution">Решение</a>
+        <a href="#process">Процесс</a>
+        <a href="#pricing">Цены</a>
+        <a href="mailto:info@atproma.ru">Email</a>
+        <a href="tel:+79991234567">Телефон</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 АТ-Прома. Видеопродакшн, который привлекает клиентов.</p>
+        <p style="margin-top: 10px; font-size: 12px;">Все права защищены. Политика конфиденциальности.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

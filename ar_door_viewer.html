@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AR Door Viewer - Визуализация дверей в дополненной реальности">
+    <title>AR Door Viewer - Дополненная реальность для дверей</title>
+    
+    <!-- Стили -->
+    <link rel="stylesheet" href="assets/css/ar_styles.css">
+    
+    <!-- TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3"></script>
+    
+    <!-- Three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+    <!-- Стартовый экран -->
+    <div id="startScreen" class="screen active">
+        <div class="start-container">
+            <div class="logo">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                    <rect x="10" y="20" width="60" height="40" stroke="#2196F3" stroke-width="2" fill="none"/>
+                    <circle cx="40" cy="40" r="8" fill="#2196F3"/>
+                    <path d="M20 30 L30 40 L20 50" stroke="#FF5722" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            <h1>AR Door Viewer</h1>
+            <p>Визуализируйте двери в дополненной реальности</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <span class="icon">📷</span>
+                    <span>Автоматическое распознавание проемов</span>
+                </div>
+                <div class="feature">
+                    <span class="icon">🚪</span>
+                    <span>Реалистичная 3D-визуализация</span>
+                </div>
+                <div class="feature">
+                    <span class="icon">⚡</span>
+                    <span>Работает в браузере</span>
+                </div>
+            </div>
+            
+            <button id="startARBtn" class="btn btn-primary btn-large">
+                <span class="btn-icon">📷</span>
+                Запустить AR
+            </button>
+            
+            <div class="system-requirements">
+                <h3>Требования:</h3>
+                <ul>
+                    <li>✓ Браузер с поддержкой WebGL</li>
+                    <li>✓ Доступ к камере устройства</li>
+                    <li>✓ Интернет-соединение</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- AR экран -->
+    <div id="arScreen" class="screen">
+        <!-- Видео с камеры -->
+        <video id="videoElement" autoplay playsinline muted></video>
+        
+        <!-- Canvas для Three.js -->
+        <canvas id="arCanvas"></canvas>
+        
+        <!-- Индикатор статуса -->
+        <div id="statusIndicator" class="status-indicator">
+            <div class="status-dot"></div>
+            <span id="statusText">Инициализация...</span>
+        </div>
+        
+        <!-- Подсказка для пользователя -->
+        <div id="userHint" class="user-hint">
+            <span id="hintText">Наведите камеру на дверной проем</span>
+        </div>
+        
+        <!-- Панель управления -->
+        <div class="control-panel">
+            <!-- Галерея моделей -->
+            <div class="models-carousel">
+                <div class="carousel-container">
+                    <div id="modelsGallery" class="models-gallery">
+                        <!-- Модели будут добавлены динамически -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Кнопки управления -->
+            <div class="control-buttons">
+                <button id="screenshotBtn" class="btn btn-icon" title="Сделать скриншот">
+                    <span>📸</span>
+                </button>
+                <button id="settingsBtn" class="btn btn-icon" title="Настройки">
+                    <span>⚙️</span>
+                </button>
+                <button id="exitARBtn" class="btn btn-icon btn-danger" title="Выход">
+                    <span>✕</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Информационная панель -->
+        <div id="infoPanel" class="info-panel">
+            <div class="info-item">
+                <span class="label">FPS:</span>
+                <span id="fpsCounter" class="value">0</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Модель:</span>
+                <span id="modelName" class="value">-</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно настроек -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Настройки</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label for="qualitySlider">Качество рендера:</label>
+                    <input type="range" id="qualitySlider" min="0.5" max="1" step="0.1" value="1">
+                    <span id="qualityValue">100%</span>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="brightnessSlider">Яркость модели:</label>
+                    <input type="range" id="brightnessSlider" min="0.5" max="2" step="0.1" value="1">
+                    <span id="brightnessValue">100%</span>
+                </div>
+                
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="showDebugInfo" checked>
+                        Показывать информацию отладки
+                    </label>
+                </div>
+                
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="enableShadows">
+                        Включить тени
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary modal-close">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно ошибки -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content modal-error">
+            <div class="modal-header">
+                <h2>⚠️ Ошибка</h2>
+            </div>
+            <div class="modal-body">
+                <p id="errorMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="errorRetryBtn" class="btn btn-primary">Повторить</button>
+                <button id="errorExitBtn" class="btn btn-secondary">Выход</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно загрузки -->
+    <div id="loadingModal" class="modal modal-loading">
+        <div class="modal-content">
+            <div class="spinner"></div>
+            <p id="loadingText">Загрузка...</p>
+        </div>
+    </div>
+
+    <!-- Скрипты приложения -->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/camera_handler.js"></script>
+    <script src="assets/js/ml_detector.js"></script>
+    <script src="assets/js/scene_manager.js"></script>
+    <script src="assets/js/ui_controller.js"></script>
+    <script src="assets/js/ar_engine.js"></script>
+</body>
+</html>

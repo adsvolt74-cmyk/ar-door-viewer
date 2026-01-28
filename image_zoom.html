@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Zoom Effect</title>
+    <style>
+        .root p img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+            cursor: zoom-in;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .root p img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .root p img.zoomed {
+            cursor: zoom-out;
+            transform: scale(1.5);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Модальное окно для полноэкранного просмотра */
+        .zoom-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .zoom-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoom-modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .zoom-modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .zoom-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .zoom-modal-close:hover {
+            color: #bbb;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="root">
+        <h1>Пример с zoom эффектом</h1>
+        <p>Нажмите на изображение для увеличения:</p>
+        <img src="https://via.placeholder.com/400x300?text=Image+1" alt="Пример 1">
+        <p>Еще одно изображение:</p>
+        <img src="https://via.placeholder.com/400x300?text=Image+2" alt="Пример 2">
+    </div>
+
+    <!-- Модальное окно для полноэкранного просмотра -->
+    <div class="zoom-modal" id="zoomModal">
+        <span class="zoom-modal-close" id="closeZoom">&times;</span>
+        <div class="zoom-modal-content">
+            <img id="zoomImage" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Находим контейнер с классом root
+        const container = document.querySelector('.root');
+        
+        // Если контейнер не найден, выходим
+        if (!container) {
+            console.warn('Контейнер .root не найден');
+        } else {
+            // Получаем все изображения только внутри тегов p в контейнере root
+            const images = container.querySelectorAll('p img');
+            const zoomModal = document.getElementById('zoomModal');
+            const zoomImage = document.getElementById('zoomImage');
+            const closeZoom = document.getElementById('closeZoom');
+
+            // Добавляем обработчик клика для каждого изображения в контейнере
+            images.forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    zoomImage.src = this.src;
+                    zoomImage.alt = this.alt;
+                    zoomModal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Отключаем скролл
+                });
+            });
+
+            // Закрытие модального окна при клике на крестик
+            closeZoom.addEventListener('click', function() {
+                zoomModal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Включаем скролл
+            });
+
+            // Закрытие модального окна при клике вне изображения
+            zoomModal.addEventListener('click', function(e) {
+                if (e.target === zoomModal) {
+                    zoomModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Закрытие при нажатии на Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && zoomModal.classList.contains('active')) {
+                    zoomModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

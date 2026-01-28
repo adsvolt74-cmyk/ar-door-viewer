@@ -1,0 +1,1157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Neuro</Author>
+  <LastAuthor>Neuro</LastAuthor>
+  <Created>2026-01-28T07:06:00Z</Created>
+  <Company>Neuro</Company>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>7920</WindowHeight>
+  <WindowWidth>14400</WindowWidth>
+  <WindowTopX>120</WindowTopX>
+  <WindowTopY>45</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62" ss:Name="Header">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Bold="1" ss:Color="#FFFFFF"/>
+   <Interior ss:Color="#366092" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s63" ss:Name="Data">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Семантика">
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="301" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="Default" ss:AutoFitWidth="0" ss:Width="300"/>
+   <Column ss:StyleID="Default" ss:AutoFitWidth="0" ss:Width="90"/>
+   <Column ss:StyleID="Default" ss:AutoFitWidth="0" ss:Width="340"/>
+   <Row ss:AutoFitHeight="0" ss:Height="25" ss:StyleID="s62">
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Ключевая фраза</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Сеть</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Кластер/группа</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">секонд хенд премиум</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Общее | Second hand premium</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">секонд хенд люкс</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Общее | Second hand luxury</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">секонд хенд брендовый</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Общее | Second hand premium</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовые вещи секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Общее | Second hand premium</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовая одежда секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Общее | Second hand premium</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">люксовая одежда бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Общее | Luxury б/у</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">премиальная одежда бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Общее | Premium б/у</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовая одежда бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Общее | Premium б/у</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовые вещи бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Общее | Premium б/у</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">магазин брендовой одежды бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Общее | Premium б/у</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">секонд хенд из европы</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Триггеры | Из Европы</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">секонд хенд люкс из европы</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Триггеры | Из Европы</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовые вещи из европы</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Триггеры | Из Европы</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">винтаж из европы</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Триггеры | Из Европы</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">оригинальные брендовые вещи бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Триггеры | Оригинал</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовые вещи оригинал бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Триггеры | Оригинал</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">проверка оригинальности брендовых вещей</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Триггеры | Оригинал/проверка</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">аутентификация брендовых вещей</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Триггеры | Оригинал/проверка</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">винтажная одежда купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Винтаж | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">винтаж одежда магазин</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Винтаж | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">винтаж брендовый купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Винтаж | Бренды</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">винтаж люкс купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Винтаж | Luxury</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">vintage одежда купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Винтаж | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">секонд хенд премиум челябинск</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Гео | Second hand premium</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">секонд хенд люкс челябинск</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Гео | Second hand luxury</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">винтаж магазин челябинск</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Гео | Винтаж</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовая одежда бу челябинск</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Гео | Premium б/у</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовые сумки бу челябинск</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Гео | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовые сумки бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">люксовые сумки бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Luxury</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумки люкс second hand</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Luxury</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумки секонд хенд брендовые</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка брендовая бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка оригинал бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Оригинал</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка из европы бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Из Европы</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка кросс боди бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Тип</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка кроссбоди бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Тип</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка тоут бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Тип</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка шоппер бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Тип</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка на плечо бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Тип</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">рюкзак брендовый бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Сумки | Тип</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">верхняя одежда премиум бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовая верхняя одежда бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">верхняя одежда люкс бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Luxury</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">пальто премиум бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Пальто</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">пальто люкс бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Пальто</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">тренч премиум бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Тренч</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">кожаная куртка премиум бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Куртки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">куртка премиум бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Куртки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">пуховик премиум бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Пуховики</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">пуховик люкс бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Пуховики</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">бомбер брендовый бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Куртки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">парка премиум бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Верхняя одежда | Куртки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовая одежда бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Одежда | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">премиум одежда бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Одежда | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">люкс одежда бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Одежда | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовые вещи streetwear</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Streetwear | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">streetwear бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Streetwear | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">streetwear секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Streetwear | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">джинсы премиум бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Джинсы | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">джинсы брендовые бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Джинсы | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">джинсы брендовые секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Джинсы | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ремни люкс бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Ремни | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ремень брендовый бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Ремни | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ремень оригинал бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Ремни | Оригинал</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ремень из европы бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Ремни | Из Европы</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">gucci секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Gucci | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">gucci бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Gucci | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">gucci винтаж</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Gucci | Винтаж</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">гуччи секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Gucci | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">гуччи бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Gucci | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">prada секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Prada | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">prada бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Prada | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">прада секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Prada | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">прада бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Prada | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">louis vuitton секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Louis Vuitton | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">louis vuitton бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Louis Vuitton | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">lv секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Louis Vuitton | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">lv бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Louis Vuitton | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">луи виттон секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Louis Vuitton | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">луи виттон бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Louis Vuitton | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">chanel секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Chanel | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">chanel бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Chanel | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">шанель секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Chanel | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">шанель бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Chanel | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">dior секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Dior | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">dior бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Dior | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">диор секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Dior | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">диор бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Dior | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">burberry секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Burberry | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">burberry бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Burberry | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">барбери секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Burberry | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">барбери бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Burberry | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">balenciaga секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Balenciaga | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">balenciaga бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Balenciaga | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">баленсиага секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Balenciaga | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">баленсиага бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Balenciaga | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">bottega veneta секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Bottega Veneta | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">bottega veneta бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Bottega Veneta | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">боттега венета бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Bottega Veneta | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">fendi секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Fendi | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">fendi бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Fendi | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">фенди секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Fendi | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">celine секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Celine | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">celine бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Celine | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">селин секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Celine | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">givenchy секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Givenchy | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">givenchy бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Givenchy | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">живанши секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Givenchy | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">versace секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Versace | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">versace бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Versace | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">версаче секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Versace | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">dolce gabbana секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Dolce&Gabbana | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">dolce gabbana бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Dolce&Gabbana | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">d g секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Dolce&Gabbana | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">дольче габбана бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Dolce&Gabbana | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">valentino секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Valentino | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">valentino бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Valentino | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">валентино секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Valentino | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">loewe секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Loewe | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">loewe бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Loewe | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">jacquemus секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Jacquemus | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">jacquemus бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Jacquemus | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">жакмюс бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Jacquemus | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">saint laurent секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Saint Laurent | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">saint laurent бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Saint Laurent | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ysl секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Saint Laurent | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ysl бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Saint Laurent | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">moncler секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Moncler | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">moncler бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Moncler | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">монклер секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Moncler | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">монклер бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Moncler | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">пуховик moncler бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Moncler | Пуховик</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">пуховик монклер бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Moncler | Пуховик</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">canada goose бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Canada Goose | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">canada goose секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Canada Goose | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">канада гус бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Canada Goose | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">парка canada goose бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Canada Goose | Парка</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">off white секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Off-White | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">off-white секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Off-White | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">off white бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Off-White | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">офф вайт секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Off-White | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">офф вайт бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Off-White | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">худи off white бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Off-White | Худи</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">stone island секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Stone Island | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">stone island бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Stone Island | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">стоун айленд секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Stone Island | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">стоун айленд бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Stone Island | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">худи stone island бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Stone Island | Худи</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">palm angels секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Palm Angels | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">palm angels бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Palm Angels | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">пальм эйнджелс бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Palm Angels | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">cp company секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | C.P. Company | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">cp company бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | C.P. Company | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">си пи компани бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | C.P. Company | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">supreme секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Supreme | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">supreme бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Supreme | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">суприм секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Supreme | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">kenzo секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Kenzo | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">kenzo бу купить</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Kenzo | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">кензо секонд хенд</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд | Kenzo | Общее</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка gucci бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Gucci | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка гуччи бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Gucci | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ремень gucci бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Gucci | Ремни</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ремень гуччи бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Gucci | Ремни</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка prada бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Prada | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка прада бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Prada | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка louis vuitton бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Louis Vuitton | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка lv бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Louis Vuitton | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка луи виттон бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Louis Vuitton | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ремень louis vuitton бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Louis Vuitton | Ремни</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ремень lv бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Louis Vuitton | Ремни</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка chanel бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Chanel | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка шанель бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Chanel | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка dior бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Dior | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка диор бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Dior | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">тренч burberry бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Burberry | Тренч</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">тренч барбери бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Burberry | Тренч</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">пальто burberry бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Burberry | Пальто</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка balenciaga бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Balenciaga | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">джинсы gucci бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Gucci | Джинсы</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">джинсы prada бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Prada | Джинсы</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">джинсы balenciaga бу</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ПОИСК</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Бренд->Категория | Balenciaga | Джинсы</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">люксовая одежда</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Интересы | Люкс</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">премиум бренды одежда</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Интересы | Премиум</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">брендовые сумки</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Интересы | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">винтаж одежда</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Интересы | Винтаж</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">streetwear бренды</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Интересы | Streetwear</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">модные бренды</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Интересы | Fashion</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">luxury brands</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Интересы | Люкс</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">vintage clothing</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Интересы | Винтаж</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">second hand luxury</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Интересы | Люкс</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">gucci</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Gucci</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">prada</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Prada</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">louis vuitton</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Louis Vuitton</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">chanel</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Chanel</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">dior</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Dior</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">burberry</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Burberry</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">balenciaga</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Balenciaga</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">bottega veneta</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Bottega Veneta</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">fendi</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Fendi</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">celine</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Celine</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">off-white</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Off-White</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">stone island</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Stone Island</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">palm angels</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Palm Angels</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">supreme</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Supreme</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">moncler</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Moncler</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">canada goose</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Бренды | Canada Goose</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ремень gucci</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Категории+бренды | Ремни</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">сумка louis vuitton</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Категории+бренды | Сумки</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">пуховик moncler</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Категории+бренды | Верхняя одежда</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">тренч burberry</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Категории+бренды | Верхняя одежда</Data></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">худи off-white</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">РСЯ | Категории+бренды | Streetwear</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

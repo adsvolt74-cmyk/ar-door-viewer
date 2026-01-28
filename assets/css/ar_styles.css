@@ -1,0 +1,739 @@
+/* ============================================
+   AR Door Viewer - Стили приложения
+   ============================================ */
+
+/* Переменные CSS */
+:root {
+    --primary-color: #2196F3;
+    --accent-color: #FF5722;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --danger-color: #F44336;
+    --dark-bg: #1a1a1a;
+    --light-bg: #f5f5f5;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --border-color: #ddd;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+/* ============================================
+   Экраны
+   ============================================ */
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Стартовый экран */
+#startScreen {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    justify-content: center;
+    align-items: center;
+}
+
+.start-container {
+    text-align: center;
+    color: white;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.logo {
+    margin-bottom: 30px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.start-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.start-container > p {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 16px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.feature .icon {
+    font-size: 1.5em;
+}
+
+.system-requirements {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    text-align: left;
+    backdrop-filter: blur(10px);
+}
+
+.system-requirements h3 {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.system-requirements ul {
+    list-style: none;
+    font-size: 0.9em;
+}
+
+.system-requirements li {
+    padding: 5px 0;
+}
+
+/* AR экран */
+#arScreen {
+    background: black;
+    position: relative;
+}
+
+#videoElement {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+#arCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================
+   Кнопки
+   ============================================ */
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1976D2;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #D32F2F;
+}
+
+.btn-large {
+    padding: 16px 40px;
+    font-size: 1.1em;
+}
+
+.btn-icon {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.5em;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-icon:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-icon.btn-danger {
+    background-color: rgba(244, 67, 54, 0.8);
+}
+
+.btn-icon.btn-danger:hover {
+    background-color: rgba(244, 67, 54, 1);
+}
+
+/* ============================================
+   Индикатор статуса
+   ============================================ */
+
+.status-indicator {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--warning-color);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.status-dot.success {
+    background-color: var(--success-color);
+    animation: none;
+}
+
+.status-dot.error {
+    background-color: var(--danger-color);
+    animation: none;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ============================================
+   Подсказка для пользователя
+   ============================================ */
+
+.user-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    font-size: 1.1em;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    z-index: 5;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+.user-hint.hidden {
+    display: none;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+/* ============================================
+   Панель управления
+   ============================================ */
+
+.control-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 20px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Галерея моделей */
+.models-carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.models-gallery {
+    display: flex;
+    gap: 10px;
+    padding: 5px 0;
+}
+
+.model-item {
+    flex-shrink: 0;
+    width: 80px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2em;
+}
+
+.model-item:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-color);
+}
+
+.model-item.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
+}
+
+.model-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Кнопки управления */
+.control-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* ============================================
+   Информационная панель
+   ============================================ */
+
+.info-panel {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    display: none;
+}
+
+.info-panel.visible {
+    display: block;
+}
+
+.info-item {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item .label {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.info-item .value {
+    color: white;
+}
+
+/* ============================================
+   Модальные окна
+   ============================================ */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--text-primary);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+/* Модальное окно ошибки */
+.modal-error .modal-header {
+    background-color: #FFEBEE;
+    border-bottom-color: var(--danger-color);
+}
+
+.modal-error .modal-header h2 {
+    color: var(--danger-color);
+}
+
+#errorMessage {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Модальное окно загрузки */
+.modal-loading {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-loading .modal-content {
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.modal-loading p {
+    color: white;
+    font-size: 1.1em;
+}
+
+/* Спиннер загрузки */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   Группы настроек
+   ============================================ */
+
+.setting-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.setting-group label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.setting-group input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--border-color);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.setting-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.setting-group input[type="range"]::-webkit-slider-thumb:hover {
+    background: #1976D2;
+}
+
+.setting-group input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.setting-group input[type="range"]::-moz-range-thumb:hover {
+    background: #1976D2;
+}
+
+.setting-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.setting-group > span {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   Адаптивность
+   ============================================ */
+
+@media (max-width: 768px) {
+    .start-container h1 {
+        font-size: 2em;
+    }
+
+    .start-container > p {
+        font-size: 1em;
+    }
+
+    .btn-large {
+        padding: 14px 32px;
+        font-size: 1em;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+
+    .control-panel {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .model-item {
+        width: 70px;
+        height: 90px;
+    }
+
+    .info-panel {
+        font-size: 0.8em;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .start-container {
+        padding: 15px;
+    }
+
+    .start-container h1 {
+        font-size: 1.8em;
+    }
+
+    .features {
+        gap: 10px;
+    }
+
+    .feature {
+        font-size: 0.95em;
+        padding: 10px 12px;
+    }
+
+    .btn-large {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .control-buttons {
+        justify-content: center;
+    }
+
+    .model-item {
+        width: 60px;
+        height: 80px;
+    }
+
+    .status-indicator {
+        font-size: 0.9em;
+        padding: 10px 16px;
+    }
+
+    .user-hint {
+        font-size: 1em;
+        padding: 16px 20px;
+    }
+}
+
+/* ============================================
+   Утилиты
+   ============================================ */
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+/* Скрытие видео элемента */
+video {
+    display: none;
+}
+
+/* Предотвращение выделения текста */
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Плавные переходы */
+.transition {
+    transition: all 0.3s ease;
+}
